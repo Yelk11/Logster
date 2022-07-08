@@ -7,13 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Logbook from 'Logster/src/screens/Logbook.js';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+
 
 const Stack = createNativeStackNavigator();
 

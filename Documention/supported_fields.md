@@ -1,0 +1,23 @@
+# Logbook
+
+- STATION_CALLSIGN
+- GRIDSQUARE
+- CREATED_TIMESTAMP
+- PROGRAMID (Logster)
+- PROGRAMVERSION (Logster version)
+
+
+
+# Log Entry
+- BAND
+- BAND_RX
+- CALL (Contacted station)
+- COMMENT
+- RX_PWR
+- TX_PWR
+- MODE
+- RST_RCVD
+- RST_SENT
+- FREQ
+- FREQ_RX
+

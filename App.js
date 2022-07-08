@@ -5,23 +5,18 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Logbook from 'Logster/src/screens/Logbook.js';
+import LogbookListScreen from 'Logster/src/screens/LogbookListScreen.js';
+import EditLogbookScreen from 'Logster/src/screens/EditLogbookScreen.js';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Logbook} />
+      <Stack.Navigator initialRouteName="Logbook">
+        <Stack.Screen name="Logbook" component={LogbookListScreen} />
+        <Stack.Screen name="Edit Logbook" component={EditLogbookScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

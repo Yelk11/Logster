@@ -13,7 +13,7 @@ import realm, {
     deleteAllLogbooks
 } from "../db/Database.js";
 
-function LogbookListScreen() {
+const LogbookListScreen = ({navigation, route}) => {
     const [data, setData] = useState(getAllLogbooks());
 
     return (
@@ -22,8 +22,8 @@ function LogbookListScreen() {
                 <Text style={{ paddingVertical: 8 }}
                     onPress={() => {
                         
-                        addLogbook("Logbook Name", "KE8MLJ", )
-                        setData(getAllLogbooks())
+                        
+                        // setData(getAllLogbooks())
                     }}>Add book</Text>
 
                 <Text style={{ paddingVertical: 8 }}

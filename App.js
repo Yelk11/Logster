@@ -64,7 +64,7 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <VectorImage source={require('/Users/matt/Documents/GitHub/Logster/test.svg')} />
+      
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

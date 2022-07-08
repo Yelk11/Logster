@@ -2,55 +2,71 @@
 import Realm from "realm";
 
 // Declare Schema
-class LogBookSchema extends Realm.Object {}
-BookSchema.schema = {
-    name: 'LogBook',
+class LogbookSchema extends Realm.Object {}
+class LogEntrySchema extends Realm.Object {}
+
+LogEntrySchema.schema = {
+    name: 'LogEntry',
     properties: {
-        title: 'string',
-        logs:  'int',
-        edition: 'int?'
+        band: 'string',
+        band_rx:  'string',
+        call: 'string',
+        rx_pwr: 'int',
+        tw_pwr: 'int',
+        mode: 'string',
+        rst_rcvd: 'int',
+        rst_sent: 'int',
+        freq: 'int',
+        freq_rq: 'int'
     }
 };
 
-// Create realm
-let realm = new Realm({schema: [LogBookSchema], schemaVersion: 1});
+LogbookSchema.schema = {
+    name: 'Logbook',
+    properties: {
+        title: 'string',
+        station_callsign:  'string',
+        gridsquare: 'string?',
+        program_id: 'string',
+        program_version: 'int',
+        logbook_entries: 'LogEntry[]',
+    }
+};
 
-let getAllBooks = () => {
-    return realm.objects('Book');
+
+
+// Create realm
+
+let realm = new Realm({schema: [LogEntrySchema, LogbookSchema], schemaVersion: 1});
+
+let getAllLogbooks = () => {
+    return realm.objects('Logbook');
 }
 
 // Add our two new functions
-let addBook = (_title, _pages, _edition = null) => {
+let addLogbook = (_title, _station_callsign, _gridsquare = null) => {
     realm.write(() => {
-        const book = realm.create('Book', {
+        const book = realm.create('Logbook', {
             title: _title,
-            pages:  _pages,
-            edition: _edition
+            station_callsign:  _station_callsign,
+            gridsquare: _gridsquare,
+            program_id: 'Logster',
+            program_version: 1
         });
     });
 }
 
-let deleteAllBooks = () => {
+let deleteAllLogbooks = () => {
     realm.write(() => {
-        realm.delete(getAllBooks());
+        realm.delete(getAllLogbooks());
     })
 }
 
-let updateAllBookEditions = () => {
-    realm.write(() => {
-        let books = getAllBooks()
-        books.map((item, index) => {
-            if (item.edition === null){
-                item.edition = 1
-            }
-        })
-    });
-};
+
 export {
-    getAllBooks,
-    addBook,
-    deleteAllBooks,
-    updateAllBookEditions
+    getAllLogbooks,
+    addLogbook,
+    deleteAllLogbooks
 }
 // Export the realm
 export default realm;

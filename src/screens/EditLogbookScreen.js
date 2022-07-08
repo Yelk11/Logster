@@ -13,7 +13,7 @@ import realm, {
     deleteAllLogbooks
 } from "../db/Database.js";
 
-function EditLogbook() {
+const EditLogbook = ({navigation, route}) => {
 
     return (
         <SafeAreaView>

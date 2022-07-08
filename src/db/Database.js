@@ -1,7 +1,7 @@
 
 import Realm from "realm";
 
-// Declare Schema
+
 class LogbookSchema extends Realm.Object {}
 class LogEntrySchema extends Realm.Object {}
 
@@ -17,7 +17,7 @@ LogEntrySchema.schema = {
         rst_rcvd: 'int',
         rst_sent: 'int',
         freq: 'int',
-        freq_rq: 'int'
+        freq_rx: 'int'
     }
 };
 
@@ -33,20 +33,39 @@ LogbookSchema.schema = {
     }
 };
 
-
-
-// Create realm
-
 let realm = new Realm({schema: [LogEntrySchema, LogbookSchema], schemaVersion: 1});
 
 let getAllLogbooks = () => {
     return realm.objects('Logbook');
 }
 
-// Add our two new functions
+
 let addLogbook = (_title, _station_callsign, _gridsquare = null) => {
     realm.write(() => {
-        const book = realm.create('Logbook', {
+        const logBook = realm.create('Logbook', {
+            title: _title,
+            station_callsign:  _station_callsign,
+            gridsquare: _gridsquare,
+            program_id: 'Logster',
+            program_version: 1
+        });
+    });
+}
+
+let addEntry = (
+    _title, 
+    _band,
+    _band_rx = null,
+    _call, 
+    _rx_pwr, 
+    _tx_pwr, 
+    _mode, 
+    _rst_rcvd,
+    _rst_sent,
+    _freq,
+    _freq_rx = null) => {
+    realm.write(() => {
+        const logBook = realm.create('Logbook', {
             title: _title,
             station_callsign:  _station_callsign,
             gridsquare: _gridsquare,

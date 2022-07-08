@@ -21,7 +21,7 @@ const LogbookListScreen = ({navigation, route}) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <Text style={{ paddingVertical: 8 }}
                     onPress={() => {
-                        
+                        navigation.navigate('Edit Logbook', { name: 'Jane' })
                         
                         // setData(getAllLogbooks())
                     }}>Add book</Text>

@@ -5,9 +5,9 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LogbookListScreen from 'Logster/src/screens/LogbookListScreen.js';
-import EditLogbookScreen from 'Logster/src/screens/EditLogbookScreen.js';
-
+import LogbookListScreen from './src/screens/LogbookListScreen.js';
+import EditLogbookScreen from './src/screens/EditLogbookScreen.js';
+import EditLogEntry from './src/screens/EditLogEntryScreen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +17,7 @@ function App() {
       <Stack.Navigator initialRouteName="Logbook">
         <Stack.Screen name="Logbook" component={LogbookListScreen} />
         <Stack.Screen name="Edit Logbook" component={EditLogbookScreen} />
+        <Stack.Screen name="Edit Entry" component={EditLogEntry} />
       </Stack.Navigator>
     </NavigationContainer>
   );

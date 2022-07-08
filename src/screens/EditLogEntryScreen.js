@@ -23,8 +23,6 @@ const EditLogEntry = ({navigation, route}) => {
                         addLogbook("Logbook Name", "KE8MLJ", )
                     }}>Add book</Text>
 
-
-
             </View>
             
         </SafeAreaView>

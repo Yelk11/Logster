@@ -4,8 +4,7 @@ import {
     Text,
     SafeAreaView,
     StyleSheet,
-    StatusBar,
-    FlatList,
+
 } from 'react-native';
 import realm, {
     getAllLogbooks,
@@ -17,16 +16,7 @@ const EditLogbook = ({navigation, route}) => {
 
     return (
         <SafeAreaView>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Text style={{ paddingVertical: 8 }}
-                    onPress={() => {
-                        addLogbook("Logbook Name", "KE8MLJ", )
-                    }}>Add book</Text>
 
-
-
-            </View>
-            
         </SafeAreaView>
     );
 }

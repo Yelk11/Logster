@@ -125,6 +125,25 @@ const EditLogEntry = ({ navigation, route }) => {
                 placeholder="KE8MLJ"
             />
 
+            <Text style={styles.title}>Gridsquare Rx</Text>
+            <TextInput
+                style={styles.input_half}
+                onChangeText={onChangeRST_rcvd}
+                value={rst_rcvd}
+                maxLength={3}
+                keyboardType='numeric'
+                placeholder="KE8MLJ"
+            />
+            <Text style={styles.title}>Gridsquare Rx</Text>
+            <TextInput
+                style={styles.input_half}
+                onChangeText={onChangeRST_rcvd}
+                value={rst_rcvd}
+                maxLength={3}
+                keyboardType='numeric'
+                placeholder="KE8MLJ"
+            />
+
         </SafeAreaView>
     );
 }

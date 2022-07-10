@@ -8,6 +8,8 @@ class LogEntrySchema extends Realm.Object {}
 LogEntrySchema.schema = {
     name: 'LogEntry',
     properties: {
+        qso_date: 'date',
+        time_on: 'int',
         band: 'string',
         band_rx:  'string',
         call: 'string',
@@ -53,7 +55,7 @@ let addLogbook = (_title, _station_callsign, _gridsquare = null) => {
 }
 
 let addEntry = (
-    _title, 
+    _qso_date,
     _band,
     _band_rx = null,
     _call, 

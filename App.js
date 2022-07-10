@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Create Logbook">
+      <Stack.Navigator initialRouteName="Log Entry">
         <Stack.Screen name="Logbook" component={LogbookListScreen} />
         <Stack.Screen name="Create Logbook" component={EditLogbookScreen} />
         <Stack.Screen name="Log Entry" component={EditLogEntry} />

@@ -87,7 +87,8 @@ let deleteAllLogbooks = () => {
 export {
     getAllLogbooks,
     addLogbook,
-    deleteAllLogbooks
+    deleteAllLogbooks,
+    addEntry
 }
 // Export the realm
 export default realm;

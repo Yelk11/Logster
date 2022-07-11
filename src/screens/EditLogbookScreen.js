@@ -14,16 +14,21 @@ import realm, {
 } from "../db/Database.js";
 
 const EditLogbook = ({ navigation, route }) => {
-    const [logbookName, onChangelogbookName] = React.useState(null);
-    const [callsign, onChangeCallsign] = React.useState(null);
+    const [title, onChangeTitle] = React.useState(null);
+    const [station_callsign, onChangeStationCallsign] = React.useState(null);
     const [gridSquare, onChangeGridSquare] = React.useState(null);
+
+    const onSubmit = () => {
+        addLogbook(title, station_callsign);
+        navigation.navigate('Edit Logbook');
+    };
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Logbook Name</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangelogbookName}
-                value={logbookName}
+                onChangeText={onChangeTitle}
+                value={title}
                 multiline={false}
                 placeholder="MyLogbook"
             />
@@ -31,8 +36,8 @@ const EditLogbook = ({ navigation, route }) => {
             <Text style={styles.title}>Logbook Owner Callsign</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeCallsign}
-                value={callsign}
+                onChangeText={onChangeStationCallsign}
+                value={station_callsign}
                 maxLength={6}
                 placeholder="eg. KE8MLJ"
             />
@@ -46,7 +51,8 @@ const EditLogbook = ({ navigation, route }) => {
                 placeholder="eg. EN82gj"
             />
 
-            <Button title="Create Logbook" />
+            <Button title="Create Logbook"
+                onPress={onSubmit} />
         </SafeAreaView>
     );
 }

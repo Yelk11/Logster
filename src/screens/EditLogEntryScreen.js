@@ -125,25 +125,19 @@ const EditLogEntry = ({ navigation, route }) => {
                 placeholder="KE8MLJ"
             />
 
-            <Text style={styles.title}>Gridsquare Rx</Text>
-            <TextInput
-                style={styles.input_half}
-                onChangeText={onChangeRST_rcvd}
-                value={rst_rcvd}
-                maxLength={3}
-                keyboardType='numeric'
-                placeholder="KE8MLJ"
-            />
-            <Text style={styles.title}>Gridsquare Rx</Text>
-            <TextInput
-                style={styles.input_half}
-                onChangeText={onChangeRST_rcvd}
-                value={rst_rcvd}
-                maxLength={3}
-                keyboardType='numeric'
-                placeholder="KE8MLJ"
-            />
-
+            <TouchableOpacity style={styles.submitButton}
+                onPress={() => 
+                    addEntry = (
+                        qso_date,
+                        band,
+                        call, 
+                        mode, 
+                        rst_rcvd,
+                        rst_sent,
+                        freq)
+                }>
+                <Text style={styles.submitText}>Submit</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     );
 }
@@ -188,8 +182,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         elevation: 3,
         borderWidth: 1,
-        backgroundColor:'black',
-        color:'white'
+        backgroundColor:'black'
     },
     optionText: {
         fontSize: 16,
@@ -205,6 +198,22 @@ const styles = StyleSheet.create({
         letterSpacing: 0.25,
         color: 'white'
     },
+    submitButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        borderRadius: 4,
+        elevation: 3,
+        borderWidth: 1,
+        backgroundColor:'black'
+    },
+    submitText: {
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: 'white'
+    }
 });
 
 export default EditLogEntry;
